@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Kashif Aziz | 3D Interactive Portfolio</title>
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,31 +51,33 @@
             z-index: -1;
         }
 
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #4f46e5;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: 0.1s;
-            transform: translate(-50%, -50%);
-        }
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background: #a855f7;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: 0.15s;
-            transform: translate(-50%, -50%);
+        /* Custom Cursor - hidden on mobile for better UX */
+        @media (min-width: 769px) {
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid #4f46e5;
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: 0.1s;
+                transform: translate(-50%, -50%);
+            }
+            .cursor-follower {
+                width: 8px;
+                height: 8px;
+                background: #a855f7;
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: 0.15s;
+                transform: translate(-50%, -50%);
+            }
         }
 
-        /* Glass Navigation */
+        /* Glass Navigation - Responsive */
         .glass-nav {
             position: sticky;
             top: 20px;
@@ -108,6 +110,8 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .nav-links a {
             text-decoration: none;
@@ -115,6 +119,7 @@
             font-weight: 500;
             transition: 0.3s;
             position: relative;
+            font-size: 1rem;
         }
         .nav-links a:hover {
             color: #c084fc;
@@ -140,7 +145,7 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Hero Section with Glitch */
+        /* Hero Section */
         .hero {
             min-height: 90vh;
             display: flex;
@@ -160,6 +165,7 @@
             position: relative;
             text-shadow: 0.05em 0 0 rgba(255,0,0,0.4), -0.05em -0.025em 0 rgba(0,255,255,0.4);
             animation: glitch 3s infinite;
+            line-height: 1.2;
         }
         @keyframes glitch {
             0%, 100% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.4), -0.05em -0.025em 0 rgba(0,255,255,0.4); }
@@ -272,6 +278,7 @@
         .skill-progress span {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
         .progress-bar {
             width: 100%;
@@ -289,7 +296,7 @@
             transition: width 1s ease;
         }
 
-        /* Timeline for Education */
+        /* Timeline for Education - Responsive */
         .timeline {
             position: relative;
             padding-left: 2rem;
@@ -312,7 +319,7 @@
             box-shadow: 0 0 10px #a855f7;
         }
 
-        /* Tech Grid */
+        /* Tech Grid - Fully Responsive */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -333,7 +340,7 @@
             background: rgba(79,70,229,0.2);
         }
 
-        /* Project Cards */
+        /* Project Cards - Responsive Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -354,7 +361,7 @@
             box-shadow: 0 20px 35px rgba(0,0,0,0.4);
         }
 
-        /* Contact Section */
+        /* Contact Section - Fully Responsive */
         .contact-grid {
             display: flex;
             flex-wrap: wrap;
@@ -369,6 +376,7 @@
             text-align: center;
             min-width: 200px;
             transition: 0.3s;
+            flex: 1;
         }
         .contact-card:hover {
             transform: translateY(-5px);
@@ -403,9 +411,200 @@
             transform: translateY(0);
         }
 
+        /* ============================================ */
+        /* RESPONSIVE DESIGN FOR MOBILE & TABLET */
+        /* ============================================ */
+        
+        @media (max-width: 1024px) {
+            .glitch-text {
+                font-size: 3.5rem;
+            }
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .glitch-text { font-size: 2.5rem; }
-            .nav-links { gap: 1rem; }
+            .container {
+                padding: 1rem;
+            }
+            
+            .glass-nav {
+                width: 95%;
+                top: 10px;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .logo h2 {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            
+            .glitch-text {
+                font-size: 2.2rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.35rem 1rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .floating-card {
+                padding: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .floating-card p {
+                font-size: 0.8rem;
+            }
+            
+            .section {
+                margin: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .skill-category {
+                padding: 1.2rem;
+            }
+            
+            .skill-category h3 {
+                font-size: 1.1rem;
+            }
+            
+            .timeline {
+                padding-left: 0.5rem;
+            }
+            
+            .timeline-item {
+                padding-left: 1.2rem;
+                margin-left: 0.5rem;
+            }
+            
+            .timeline-item h3 {
+                font-size: 1rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 0.8rem;
+            }
+            
+            .tech-item {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .project-card {
+                padding: 1.2rem;
+            }
+            
+            .project-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-card {
+                min-width: auto;
+                padding: 1.2rem;
+            }
+            
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 1rem 0;
+            }
+            
+            .hero-content p {
+                margin: 1rem auto;
+            }
+            
+            .btn-group {
+                justify-content: center;
+            }
+            
+            footer {
+                padding: 1.5rem;
+                font-size: 0.8rem;
+            }
+            
+            /* Hide custom cursors on mobile */
+            .cursor, .cursor-follower {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .glitch-text {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 0.7rem;
+                flex-wrap: wrap;
+            }
+            
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+            
+            .tech-item {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+            
+            .btn-primary, .btn-outline {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.65rem;
+            }
         }
     </style>
 </head>
@@ -419,7 +618,7 @@
 <!-- Navigation -->
 <div class="glass-nav">
     <div class="nav-wrapper">
-        <div class="logo"><h2><i class="fas fa-crown"></i> KASHIF AZIZ </h2></div>
+        <div class="logo"><h2><i class="fas fa-crown"></i> KASHIF AZIZ</h2></div>
         <ul class="nav-links">
             <li><a href="#home">HOME</a></li>
             <li><a href="#skills">SKILLS</a></li>
@@ -644,15 +843,17 @@
 </script>
 
 <script type="text/javascript">
-    // Custom Cursor
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        follower.style.left = e.clientX + 'px';
-        follower.style.top = e.clientY + 'px';
-    });
+    // Custom Cursor (only on desktop)
+    if(window.innerWidth > 768) {
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            follower.style.left = e.clientX + 'px';
+            follower.style.top = e.clientY + 'px';
+        });
+    }
     
     // Scroll Reveal
     const revealElements = document.querySelectorAll('.scroll-reveal');
